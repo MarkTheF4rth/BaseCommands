@@ -14,7 +14,7 @@ def help(self, message, ctx):
  
     for command_name, command in self.commands.items():
         description = command.get_description(message.channel, message.author.roles)
-        if not description:
+        if (not description) or (not command.validate_role(message.channel.id, message.author.roles)):
             continue
         command_name = '/'.join(command.aliases)
         if 'pm_help' in command.flags: 
@@ -23,15 +23,16 @@ def help(self, message, ctx):
             output.append((command_name, description))
         lengths.append(len(command_name)) 
  
-    command_length = max(lengths) 
 
     if output: 
+        command_length = max(lengths) 
         final_message_pb = header+['**`{:<{length}} :`** {}'.format(x, y, length=command_length) for x, y in output] 
         self.message_printer('\n'.join(final_message_pb), message.channel, msg_break=msg_break) 
     else: 
         self.message_printer('No help message can be displayed at this time', message.channel)    
 
     if pm_output: 
+        command_length = max(lengths) 
         final_message_pm = header+['**`{:<{length}} :`** {}'.format(x, y, length=command_length) for x, y in pm_output] 
         self.message_printer('\n'.join(final_message_pm), message.author, msg_break=msg_break) 
 
