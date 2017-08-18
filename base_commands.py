@@ -1,7 +1,7 @@
 import discord, asyncio
-from command import command
-from task import task
-from func import func
+from Decorators.command import command
+from Decorators.task import task
+from Decorators.func import func
 
 @command(description='Displays this message')
 def help(self, message, ctx): 
