@@ -40,7 +40,3 @@ def help(self, message, ctx):
 def confirm(self, message, ctx): 
     livemessage = self.addattr()
     self.message_printer(livemessage, message.channel)
-
-@func()
-def addattr(self):
-    return '**I live**'
