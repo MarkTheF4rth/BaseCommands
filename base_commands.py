@@ -13,7 +13,7 @@ def construct_message(output_dict, lengths):
         output = output_dict[list(output_dict)[0]] # don't use category headers if theres only 1 category
         return header+['**`{:<{length}} :`** {}'.format(x, y, length=command_length) for x, y in output]
 
-    for category, commands in ouput_dict.items(): #sorted(output_dict.items()): # sorts alphanumerically TODO: allow flexible sorting
+    for category, commands in output_dict.items(): #sorted(output_dict.items()): # sorts alphanumerically TODO: allow flexible sorting
         message.append('\n**{} Commands**:'.format(category))
         message.append('-'*20)
         message = message + ['**`{:<{length}} :`** {}'.format(x, y, length=command_length) for x, y in commands]
