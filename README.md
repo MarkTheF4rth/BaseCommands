@@ -1,4 +1,4 @@
-Base Commands version 1.0.0
+Base Commands version 1.1.0
 
 Command plugin for the base commands module (https://github.com/MarkTheF4rth/Base_Bot)
 
