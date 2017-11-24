@@ -46,7 +46,7 @@ def construct_message(output_dict, command_length):
     for category, commands in sorted(output_dict.items()): # sorts categories alphabetically 
         message.append('\n**{} Commands**:'.format(category))
         message.append('-'*20)
-        message = create_message(output)
+        message.extend(create_message(commands))
 
     return message
 
